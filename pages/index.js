@@ -2,18 +2,24 @@ import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
 
+const data = [{name :'yosos', clicked: false},
+{name :'bicas', clicked: false},
+{name :'tigas', clicked: false},
+{name :'deregue', clicked: false},
+{name :'robert', clicked: false},
+{name :'josias', clicked: false},
+{name :'pedro', clicked: false},
+{name :'marcio', clicked: false},
+{name :'faeu', clicked: false},
+{name :'jordan', clicked: false}]
+
+const currentMember = data[Math.floor(Math.random() * 10)].name
+
 export default function Home() {
 
-  const [members, setMembers] = React.useState([{name :'yosos', clicked: false},
-                                                {name :'bicas', clicked: false},
-                                                {name :'tigas', clicked: false},
-                                                {name :'deregue', clicked: false},
-                                                {name :'robert', clicked: false},
-                                                {name :'josias', clicked: false},
-                                                {name :'pedro', clicked: false},
-                                                {name :'marcio', clicked: false},
-                                                {name :'faeu', clicked: false},
-                                                {name :'jordan', clicked: false}])
+  const [members, setMembers] = React.useState(data)
+
+
 
 
   function setClicked (memberIndex)
@@ -36,11 +42,10 @@ export default function Home() {
 
         <p className="description">
           Clique na imagem para remover os personagens
-          .Seu personagem é {members[Math.floor(Math.random() * 10)].name}
+          .Seu personagem é {currentMember}
         </p>
         <div className="grid">
         {members.map( (item,index) => {
-          console.log(item);
           if(!item.clicked)
           {
             return(
